@@ -1,0 +1,18 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer { // Layer 0
+            bindings = <
+                &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp M    &kp K
+                &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp M    &kp K
+                &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp M    &kp K
+                &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp M    &kp K
+                &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp Z    &kp M    &kp K    &kp M    &kp K
+            >;
+        };
+    };
+ };
