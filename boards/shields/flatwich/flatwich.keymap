@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
@@ -41,11 +42,11 @@
         funcion { // Layer 3
             display-name = "Function";
             bindings = <
-                &kp &none &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6              &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none
-                &kp &none &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12             &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none
-                &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none
-                &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none
-                &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &kp CAPS  &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none
+                &bt BT_SEL 0 &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6              &bt BT_DISC 0 &kp &none &kp &none &kp &none      &kp &none  &kp &none &bt BT_CLR
+                &bt BT_SEL 1 &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12             &bt BT_DISC 1 &kp &none &kp &none &kp &none      &kp &none  &kp &none &bt BT_CLR
+                &bt BT_SEL 2 &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &bt BT_DISC 2 &kp &none &kp &none &bt BT_CLR_ALL &kp &none  &kp &none &kp &none
+                &bt BT_SEL 3 &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &bt BT_DISC 3 &kp &none &kp &none &kp &none      &kp &none  &kp &none &kp &none
+                &bt BT_SEL 4 &kp &none &kp &none &kp &none &kp &none &kp &none &kp &none           &bt BT_DISC 4 &kp &none &kp &none &kp &none      &bt BT_PRV &kp &none &bt BT_NXT
             >;
         };
 
