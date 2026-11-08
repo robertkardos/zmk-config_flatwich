@@ -1,6 +1,20 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    macros {
+        out_bt: out_bt {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>; // Accepts 1 argument (the profile number)
+            bindings
+                = <&out OUT_BLE>
+                , <&macro_wait_time 200>
+                , <&macro_param_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>;
+        };
+    };
+};
 
 / {
     keymap {
@@ -42,12 +56,12 @@
         funcion { // Layer 3
             display-name = "Function";
             bindings = <
-                &bt BT_SEL 0  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6          &bt BT_DISC 0  &none  &none  &none           &none       &none  &bt BT_CLR
-                &bt BT_SEL 1  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12         &bt BT_DISC 1  &none  &none  &none           &none       &none  &bt BT_CLR
-                &bt BT_SEL 2  &none   &none   &none   &none    &none    &none           &bt BT_DISC 2  &none  &none  &bt BT_CLR_ALL  &none       &none  &none
-                &bt BT_SEL 3  &none   &none   &none   &none    &none    &none           &bt BT_DISC 3  &none  &none  &none           &none       &none  &none
-                &bt BT_SEL 4  &none   &none   &none   &none    &none    &none           &bt BT_DISC 4  &none  &none  &none           &bt BT_PRV  &none  &bt BT_NXT
+                &out OUT_USB  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6          &bt BT_DISC 0  &none  &none  &none           &none       &none  &bt BT_CLR
+                &out_bt 1     &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12         &bt BT_DISC 1  &none  &none  &none           &none       &none  &bt BT_CLR
+                &bt BT_SEL 1     &none   &none   &none   &none    &none    &none           &bt BT_DISC 2  &none  &none  &bt BT_CLR_ALL  &none       &none  &none
+                &out OUT_BLE     &none   &none   &none   &none    &none    &none           &bt BT_DISC 3  &none  &none  &none           &none       &none  &none
+                &out OUT_TOG     &none   &none   &none   &none    &none    &none           &bt BT_DISC 4  &none  &none  &none           &bt BT_PRV  &none  &bt BT_NXT
             >;
         };
     };
- };
+};
