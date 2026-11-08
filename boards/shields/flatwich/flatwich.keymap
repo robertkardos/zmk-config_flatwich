@@ -2,6 +2,33 @@
 #include <behaviors/rgbled_widget.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    macros {
+        out_bt_0: out_bt_0 {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE> , <&bt BT_SEL 0>;
+        };
+        out_bt_1: out_bt_1 {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE> , <&bt BT_SEL 1>;
+        };
+        out_bt_2: out_bt_2 {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;
+        };
+    };
+};
 
 / {
     keymap {
@@ -43,11 +70,11 @@
         funcion { // Layer 3
             display-name = "Function";
             bindings = <
-                &bt BT_SEL 0  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6          &bt BT_DISC 0  &none  &none  &none           &none       &none  &bt BT_CLR
-                &bt BT_SEL 1  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12         &bt BT_DISC 1  &none  &none  &none           &none       &none  &bt BT_CLR
-                &bt BT_SEL 2  &none   &none   &none   &none    &none    &none           &bt BT_DISC 2  &none  &none  &bt BT_CLR_ALL  &none       &none  &none
-                &bt BT_SEL 3  &none   &none   &none   &none    &none    &ind_con        &bt BT_DISC 3  &none  &none  &none           &none       &none  &none
-                &bt BT_SEL 4  &none   &none   &none   &none    &none    &ind_bat        &bt BT_DISC 4  &none  &none  &none           &bt BT_PRV  &none  &bt BT_NXT
+                &out OUT_USB  &kp F1        &kp F2  &kp F3  &kp F4   &kp F5   &kp F6          &bt BT_DISC 0  &none  &none  &none           &none       &none  &bt BT_CLR
+                &out_bt_0     &kp F7        &kp F8  &kp F9  &kp F10  &kp F11  &kp F12         &bt BT_DISC 1  &none  &none  &none           &none       &none  &bt BT_CLR
+                &out_bt_1     &out OUT_TOG  &none   &none   &none    &none    &bootloader     &bt BT_DISC 2  &none  &none  &bt BT_CLR_ALL  &none       &none  &bootloader
+                &out_bt_2     &none         &none   &none   &none    &none    &ind_con        &bt BT_DISC 3  &none  &none  &none           &none       &none  &none
+                &out OUT_BLE  &none         &none   &none   &none    &none    &ind_bat        &bt BT_DISC 4  &none  &none  &none           &bt BT_PRV  &none  &bt BT_NXT
             >;
         };
     };
