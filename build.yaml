@@ -12,3 +12,6 @@ include:
     shield: flatwich_left
   - board: nice_nano
     shield: flatwich_right
+  - board: nice_nano
+    shield: settings_reset
+    
